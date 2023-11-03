@@ -4,7 +4,7 @@ package model;
  * Object with primitive type int fields for testing.
  * This class has two types of int fields: public, private.
  */
-public class IntObj {
+public class IntObject {
     public int pubInt;
     private int priInt;
 
@@ -14,7 +14,7 @@ public class IntObj {
      * @param pubInt is the value for the public int field.
      * @param priInt is the value for the private int field.
      */
-    public IntObj(int pubInt, int priInt) {
+    public IntObject(int pubInt, int priInt) {
         this.pubInt = pubInt;
         this.priInt = priInt;
     }
@@ -29,10 +29,10 @@ public class IntObj {
     public boolean equals(Object other) {
         if (this == other) {
             return true;
-        } else if(!(other instanceof IntObj)) {
+        } else if(!(other instanceof IntObject)) {
             return false;
         } else {
-            IntObj intObj = (IntObj) other;
+            IntObject intObj = (IntObject) other;
             return this.pubInt == intObj.pubInt && priInt == intObj.priInt;
         }
     }

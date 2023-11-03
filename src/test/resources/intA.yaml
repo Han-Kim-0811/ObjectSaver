@@ -1,0 +1,9 @@
+class_name: model.IntObject
+simple_name: IntObject
+Fields: 
+	pubInt:
+		type: int
+		value: 1
+	priInt:
+		type: int
+		value: 2
