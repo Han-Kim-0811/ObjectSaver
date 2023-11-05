@@ -1,11 +1,14 @@
 package han.util;
 
+// Objects for testing.
 import model.IntObject;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
 
+// Library for file handling.
 import java.io.IOException;
 
+// Annotations and methods in JUnit framework, which are used for testing.
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ObjectSaverTest {

@@ -1,0 +1,35 @@
+Index: src/test/java/han/util/ObjectSaverTest.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package han.util;\n\nimport model.IntObject;\nimport org.junit.jupiter.api.DisplayName;\nimport org.junit.jupiter.api.Test;\n\nimport java.io.IOException;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nclass ObjectSaverTest {\n    public final String PATH = \"./src/test/resources\";\n    @Test\n    @DisplayName(\"Test int fields\")\n    void IntObjTest() throws IOException {\n        IntObject objA = new IntObject(1,2);\n        IntObject objB = new IntObject(-1,-2);\n\n        ObjectSaver.save(objA, PATH + \"/intA.yaml\");\n        ObjectSaver.load(objB, PATH + \"/intA.yaml\");\n\n        assertEquals(objA, objB);\n    }\n\n    @Test\n    @DisplayName(\"General saveTest\")\n    void saveTest() throws IOException {\n        IntObject objA = new IntObject(1,2);\n        ObjectSaver.save(objA,PATH + \"/intA.yaml\");\n    }\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/han/util/ObjectSaverTest.java b/src/test/java/han/util/ObjectSaverTest.java
+--- a/src/test/java/han/util/ObjectSaverTest.java	(revision f75615400ae135778d41b2f4e1526db4cb9ce0ee)
++++ b/src/test/java/han/util/ObjectSaverTest.java	(date 1699221526988)
+@@ -1,6 +1,8 @@
+ package han.util;
+ 
++//
+ import model.IntObject;
++
+ import org.junit.jupiter.api.DisplayName;
+ import org.junit.jupiter.api.Test;
+ 
+Index: src/test/resources/intA.yaml
+===================================================================
+diff --git a/src/test/resources/intA.yaml b/src/test/resources/intA.yaml
+deleted file mode 100644
+--- a/src/test/resources/intA.yaml	(revision f75615400ae135778d41b2f4e1526db4cb9ce0ee)
++++ /dev/null	(revision f75615400ae135778d41b2f4e1526db4cb9ce0ee)
+@@ -1,9 +0,0 @@
+-class_name: model.IntObject
+-simple_name: IntObject
+-Fields: 
+-	pubInt:
+-		type: int
+-		value: 1
+-	priInt:
+-		type: int
+-		value: 2
