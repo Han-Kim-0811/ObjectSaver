@@ -1,4 +1,4 @@
-package model;
+package model.primitives;
 
 /**
  * Object with primitive type int fields for testing.
