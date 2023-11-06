@@ -3,11 +3,14 @@ package han.util;
 // Reflection used to access object's field name and field value.
 import java.lang.reflect.Field;
 
-// Library for file handling.
+// Used for file handling.
 import java.io.PrintWriter;
 import java.io.IOException;
 import java.io.File;
 import java.util.Scanner;
+
+// Used to utilize different parsing functions.
+import java.util.function.Function;
 
 /**
  * Utility class with the following functionality.
@@ -75,21 +78,52 @@ public final class ObjectSaver {
         }
 
         for (Field field : fields) {
+            // values[0] = field's name (e.g. pubInt, priInt etc...).
+            // values[1] = field's type (e.g. int, double etc...).
+            // values[2] = field's value (e.g. 1, 4.5, "String" etc...).
             String[] values = scan.nextLine().split(",");
 
             try {
-                //TODO: Should use different parse function for different types.
-                field.set(obj, Integer.parseInt(values[2]));
+                field.set(obj, parseType(values[0]).apply(values[2]));
             } catch (IllegalAccessException e) {
                 field.setAccessible(true);
                 try {
-                    //TODO: Should use different parse function for different types.
-                    field.set(obj, Integer.parseInt(values[2]));
+                    field.set(obj, parseType(values[0]).apply(values[2]));
                 } catch (IllegalAccessException ex) {
                     throw new AssertionError("Inaccessible field was accessed.");
                 }
                 field.setAccessible(false);
             }
+        }
+    }
+
+    /**
+     * Returns the proper function for parsing the given type.
+     *
+     * @param type is the name of the data type to parse from String.
+     * @return the proper parse function for the given data type's name.
+     */
+    private static Function<String, ?> parseType(String type) {
+        switch (type) {
+            case "byte":
+                return Byte::parseByte;
+            case "short":
+                return Short::parseShort;
+            case "int":
+                return Integer::parseInt;
+            case "long":
+                return Long::parseLong;
+            case "float":
+                return Float::parseFloat;
+            case "double":
+                return Double::parseDouble;
+            case "boolean":
+                return Boolean::parseBoolean;
+            case "char":
+                return (String ch) -> ch.charAt(0);
+            default:
+                //TODO: Implement other situations (e.g. Arrays, Objects etc...).
+                throw new AssertionError("Not supported yet.");
         }
     }
 }
