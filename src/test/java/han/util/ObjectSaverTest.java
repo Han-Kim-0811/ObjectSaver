@@ -24,11 +24,4 @@ class ObjectSaverTest {
 
         assertEquals(objA, objB);
     }
-
-    @Test
-    @DisplayName("General saveTest")
-    void saveTest() throws IOException {
-        IntObject objA = new IntObject(1,2);
-        ObjectSaver.save(objA,PATH + "/intA.yaml");
-    }
 }

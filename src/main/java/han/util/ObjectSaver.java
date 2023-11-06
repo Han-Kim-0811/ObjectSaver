@@ -6,6 +6,8 @@ import java.lang.reflect.Field;
 // Library for file handling.
 import java.io.PrintWriter;
 import java.io.IOException;
+import java.io.File;
+import java.util.Scanner;
 
 /**
  * Utility class with the following functionality.
@@ -34,10 +36,9 @@ public final class ObjectSaver {
      */
     public static void save(Object obj, String path) throws IOException {
         PrintWriter writer = new PrintWriter(path);
-        Class<?> objClass = obj.getClass();
-        Field[] fields = objClass.getDeclaredFields();
+        Field[] fields = obj.getClass().getDeclaredFields();
 
-        writer.print(objClass.getSimpleName());
+        writer.print(obj.getClass().getSimpleName());
 
         for (Field field : fields) {
             writer.println();
@@ -64,7 +65,31 @@ public final class ObjectSaver {
      * @param obj is the Object to save.
      * @param path is the path of the CSV save file.
      */
-    public static void load(Object obj, String path){
-        //TODO: implement the load function for basic objects with primitive type fields.
+    public static void load(Object obj, String path) throws IOException{
+        File file = new File(path);
+        Scanner scan = new Scanner(file);
+        Field[] fields = obj.getClass().getDeclaredFields();
+
+        if(!scan.nextLine().equals(obj.getClass().getSimpleName())) {
+            throw new RuntimeException("Incompatible Save File: Different class name");
+        }
+
+        for (Field field : fields) {
+            String[] values = scan.nextLine().split(",");
+
+            try {
+                //TODO: Should use different parse function for different types.
+                field.set(obj, Integer.parseInt(values[2]));
+            } catch (IllegalAccessException e) {
+                field.setAccessible(true);
+                try {
+                    //TODO: Should use different parse function for different types.
+                    field.set(obj, Integer.parseInt(values[2]));
+                } catch (IllegalAccessException ex) {
+                    throw new AssertionError("Inaccessible field was accessed.");
+                }
+                field.setAccessible(false);
+            }
+        }
     }
 }
