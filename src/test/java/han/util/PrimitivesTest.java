@@ -25,8 +25,8 @@ class PrimitivesTest {
         ByteObject objA = new ByteObject((byte) 1, Byte.MAX_VALUE);
         ByteObject objB = new ByteObject((byte) -1, Byte.MIN_VALUE);
 
-        ObjectSaver.save(objA, PATH + "/byteA.yaml");
-        ObjectSaver.load(objB, PATH + "/byteA.yaml");
+        ObjectSaver.save(objA, PATH + "/byteA.csv");
+        ObjectSaver.load(objB, PATH + "/byteA.csv");
 
         assertEquals(objA, objB);
     }
@@ -37,8 +37,8 @@ class PrimitivesTest {
         ShortObject objA = new ShortObject((short) 1, Short.MAX_VALUE);
         ShortObject objB = new ShortObject((short) -1, Short.MIN_VALUE);
 
-        ObjectSaver.save(objA, PATH + "/shortA.yaml");
-        ObjectSaver.load(objB, PATH + "/shortA.yaml");
+        ObjectSaver.save(objA, PATH + "/shortA.csv");
+        ObjectSaver.load(objB, PATH + "/shortA.csv");
 
         assertEquals(objA, objB);
     }
@@ -49,8 +49,8 @@ class PrimitivesTest {
         IntObject objA = new IntObject(1, Integer.MAX_VALUE);
         IntObject objB = new IntObject(-1, Integer.MIN_VALUE);
 
-        ObjectSaver.save(objA, PATH + "/intA.yaml");
-        ObjectSaver.load(objB, PATH + "/intA.yaml");
+        ObjectSaver.save(objA, PATH + "/intA.csv");
+        ObjectSaver.load(objB, PATH + "/intA.csv");
 
         assertEquals(objA, objB);
     }
@@ -61,8 +61,8 @@ class PrimitivesTest {
         LongObject objA = new LongObject(1L, Long.MAX_VALUE);
         LongObject objB = new LongObject(-1L, Long.MAX_VALUE);
 
-        ObjectSaver.save(objA, PATH + "/longA.yaml");
-        ObjectSaver.load(objB, PATH + "/longA.yaml");
+        ObjectSaver.save(objA, PATH + "/longA.csv");
+        ObjectSaver.load(objB, PATH + "/longA.csv");
 
         assertEquals(objA, objB);
     }
@@ -73,8 +73,8 @@ class PrimitivesTest {
         FloatObject objA = new FloatObject(0.1f, Float.MAX_VALUE);
         FloatObject objB = new FloatObject(-0.1f, Float.MIN_VALUE);
 
-        ObjectSaver.save(objA, PATH + "/floatA.yaml");
-        ObjectSaver.load(objB, PATH + "/floatA.yaml");
+        ObjectSaver.save(objA, PATH + "/floatA.csv");
+        ObjectSaver.load(objB, PATH + "/floatA.csv");
 
         assertEquals(objA, objB);
     }
@@ -85,8 +85,8 @@ class PrimitivesTest {
         DoubleObject objA = new DoubleObject(0.1, Double.MAX_VALUE);
         DoubleObject objB = new DoubleObject(-0.1, Double.MIN_VALUE);
 
-        ObjectSaver.save(objA, PATH + "/doubleA.yaml");
-        ObjectSaver.load(objB, PATH + "/doubleA.yaml");
+        ObjectSaver.save(objA, PATH + "/doubleA.csv");
+        ObjectSaver.load(objB, PATH + "/doubleA.csv");
 
         assertEquals(objA, objB);
     }
@@ -97,8 +97,8 @@ class PrimitivesTest {
         BoolObject objA = new BoolObject(true, false);
         BoolObject objB = new BoolObject(false, true);
 
-        ObjectSaver.save(objA, PATH + "/boolA.yaml");
-        ObjectSaver.load(objB, PATH + "/boolA.yaml");
+        ObjectSaver.save(objA, PATH + "/boolA.csv");
+        ObjectSaver.load(objB, PATH + "/boolA.csv");
 
         assertEquals(objA, objB);
     }
@@ -109,8 +109,8 @@ class PrimitivesTest {
         CharObject objA = new CharObject('A', 'Z');
         CharObject objB = new CharObject('a', 'b');
 
-        ObjectSaver.save(objA, PATH + "/charA.yaml");
-        ObjectSaver.load(objB, PATH + "/charA.yaml");
+        ObjectSaver.save(objA, PATH + "/charA.csv");
+        ObjectSaver.load(objB, PATH + "/charA.csv");
 
         assertEquals(objA, objB);
     }
@@ -121,8 +121,8 @@ class PrimitivesTest {
         StrObject objA = new StrObject("Hello", "World!");
         StrObject objB = new StrObject("Hallo", "Welt!");
 
-        ObjectSaver.save(objA, PATH + "/stringA.yaml");
-        ObjectSaver.load(objB, PATH + "/stringA.yaml");
+        ObjectSaver.save(objA, PATH + "/strA.csv");
+        ObjectSaver.load(objB, PATH + "/strA.csv");
 
         assertEquals(objA, objB);
     }
