@@ -11,8 +11,13 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class ObjectSaverTest {
-    public final String PATH = "./src/test/resources";
+/**
+ * Unit test for checking the following functionality of ObjectSaver.
+ * Save and load public primitive and String fields.
+ * Save and load private primitive and String fields.
+ */
+class PrimitivesTest {
+    public final String PATH = "./src/test/resources/primitives";
 
     @Test
     @DisplayName("Test byte fields")
@@ -87,7 +92,7 @@ class ObjectSaverTest {
     }
 
     @Test
-    @DisplayName("Test double fields")
+    @DisplayName("Test boolean fields")
     void BoolTest() throws IOException {
         BoolObject objA = new BoolObject(true, false);
         BoolObject objB = new BoolObject(false, true);
@@ -99,13 +104,25 @@ class ObjectSaverTest {
     }
 
     @Test
-    @DisplayName("Test double fields")
+    @DisplayName("Test char fields")
     void CharTest() throws IOException {
         CharObject objA = new CharObject('A', 'Z');
         CharObject objB = new CharObject('a', 'b');
 
         ObjectSaver.save(objA, PATH + "/charA.yaml");
         ObjectSaver.load(objB, PATH + "/charA.yaml");
+
+        assertEquals(objA, objB);
+    }
+
+    @Test
+    @DisplayName("Test String fields")
+    void StrTest() throws IOException {
+        StrObject objA = new StrObject("Hello", "World!");
+        StrObject objB = new StrObject("Hallo", "Welt!");
+
+        ObjectSaver.save(objA, PATH + "/stringA.yaml");
+        ObjectSaver.load(objB, PATH + "/stringA.yaml");
 
         assertEquals(objA, objB);
     }

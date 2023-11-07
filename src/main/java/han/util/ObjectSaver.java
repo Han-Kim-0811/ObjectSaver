@@ -2,11 +2,13 @@ package han.util;
 
 // Reflection used to access object's field name and field value.
 import java.lang.reflect.Field;
+import java.lang.reflect.ParameterizedType;
 
 // Used for file handling.
 import java.io.PrintWriter;
 import java.io.IOException;
 import java.io.File;
+import java.lang.reflect.Type;
 import java.util.Scanner;
 
 // Used to utilize different parsing functions.
@@ -121,6 +123,8 @@ public final class ObjectSaver {
                 return Boolean::parseBoolean;
             case "char":
                 return (String ch) -> ch.charAt(0);
+            case "java.lang.String":
+                return (String str) -> str;
             default:
                 //TODO: Implement other situations (e.g. Arrays, Objects etc...).
                 throw new AssertionError("Not supported yet.");
