@@ -1,0 +1,3 @@
+TestObject
+java.lang.Short,pubField,1
+java.lang.Short,priField,32767

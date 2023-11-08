@@ -108,28 +108,18 @@ public final class ObjectSaver {
      * @return the proper parse function for the given data type's name.
      */
     private static Function<String, ?> parseType(String type) {
-        switch (type) {
-            case "byte":
-                return Byte::parseByte;
-            case "short":
-                return Short::parseShort;
-            case "int":
-                return Integer::parseInt;
-            case "long":
-                return Long::parseLong;
-            case "float":
-                return Float::parseFloat;
-            case "double":
-                return Double::parseDouble;
-            case "boolean":
-                return Boolean::parseBoolean;
-            case "char":
-                return (String ch) -> ch.charAt(0);
-            case "java.lang.String":
-                return (String str) -> str;
-            default:
-                //TODO: Implement other situations (e.g. Arrays, Objects etc...).
-                throw new AssertionError("Not supported yet.");
-        }
+        //TODO: Implement other situations (e.g. Arrays, Objects etc...).
+        return switch (type) {
+            case "byte", "java.lang.Byte" -> Byte::parseByte;
+            case "short", "java.lang.Short" -> Short::parseShort;
+            case "int", "java.lang.Integer" -> Integer::parseInt;
+            case "long", "java.lang.Long" -> Long::parseLong;
+            case "float", "java.lang.Float" -> Float::parseFloat;
+            case "double", "java.lang.Double" -> Double::parseDouble;
+            case "boolean", "java.lang.Boolean" -> Boolean::parseBoolean;
+            case "char", "java.lang.Character" -> (String ch) -> ch.charAt(0);
+            case "java.lang.String" -> (String str) -> str;
+            default -> throw new AssertionError("Not supported yet.");
+        };
     }
 }

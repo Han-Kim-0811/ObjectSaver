@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="827e6fae-04d8-47e1-a74d-b097fa07ecd3" name="Changes" comment="Implemented tests and test object with generic type fields.&#10;&#10;Initially, this test was meant for wrapper classes and String fields, but it turns out to be that generic type fields itself has a unique property (type erasure) that has to be tested.">
+    <list default="true" id="827e6fae-04d8-47e1-a74d-b097fa07ecd3" name="Changes" comment="Changed functionality of the save function.&#10;&#10;Instead of saving the type of the field, it will save the type of the value. This way, it will always be able to save the actual type of the value instead of the generic type">
       <change afterPath="$PROJECT_DIR$/src/test/resources/generic/boolA.csv" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/test/resources/generic/byteA.csv" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/test/resources/generic/charA.csv" afterDir="false" />
@@ -14,7 +14,6 @@
       <change afterPath="$PROJECT_DIR$/src/test/resources/generic/longA.csv" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/test/resources/generic/shortA.csv" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/test/resources/generic/strA.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/han/util/ObjectSaver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/han/util/ObjectSaver.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -310,7 +309,15 @@
       <option name="project" value="LOCAL" />
       <updated>1699392992322</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Changed functionality of the save function.&#10;&#10;Instead of saving the type of the field, it will save the type of the value. This way, it will always be able to save the actual type of the value instead of the generic type">
+      <option name="closed" value="true" />
+      <created>1699465662617</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1699465662617</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -334,6 +341,7 @@
     <MESSAGE value="Implemented save and load function for String types&#10;&#10;Since String is used as much as primitive types (and also has similar behavior), I decided to categorize it with other primitive types for testing.&#10;&#10;Additionally, refactored existing test and test objects according to the category." />
     <MESSAGE value="Renamed all save file extension (.yaml -&gt; .csv)&#10;&#10;This change should have been done with commit 306b1ce6d4744890b071c597989d622ae56c6aa2 (Change of save file format). However, it was forgotten." />
     <MESSAGE value="Implemented tests and test object with generic type fields.&#10;&#10;Initially, this test was meant for wrapper classes and String fields, but it turns out to be that generic type fields itself has a unique property (type erasure) that has to be tested." />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented tests and test object with generic type fields.&#10;&#10;Initially, this test was meant for wrapper classes and String fields, but it turns out to be that generic type fields itself has a unique property (type erasure) that has to be tested." />
+    <MESSAGE value="Changed functionality of the save function.&#10;&#10;Instead of saving the type of the field, it will save the type of the value. This way, it will always be able to save the actual type of the value instead of the generic type" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed functionality of the save function.&#10;&#10;Instead of saving the type of the field, it will save the type of the value. This way, it will always be able to save the actual type of the value instead of the generic type" />
   </component>
 </project>

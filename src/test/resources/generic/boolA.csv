@@ -1,0 +1,3 @@
+TestObject
+java.lang.Boolean,pubField,true
+java.lang.Boolean,priField,false
