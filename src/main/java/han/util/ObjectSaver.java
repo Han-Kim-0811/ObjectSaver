@@ -2,13 +2,11 @@ package han.util;
 
 // Reflection used to access object's field name and field value.
 import java.lang.reflect.Field;
-import java.lang.reflect.ParameterizedType;
 
 // Used for file handling.
 import java.io.PrintWriter;
 import java.io.IOException;
 import java.io.File;
-import java.lang.reflect.Type;
 import java.util.Scanner;
 
 // Used to utilize different parsing functions.
@@ -20,7 +18,7 @@ import java.util.function.Function;
  * Load the field's state of a Java object from a CSV save file.
  *
  * @author Han Kim
- * @version 2023-11-02
+ * @version 2023-11-07
  */
 public final class ObjectSaver {
     /**
@@ -46,20 +44,24 @@ public final class ObjectSaver {
         writer.print(obj.getClass().getSimpleName());
 
         for (Field field : fields) {
-            writer.println();
-            writer.print(field.getType().getName() + ",");
-            writer.print(field.getName() + ",");
+            // Access field's value.
+            Object value;
             try {
-                writer.print(field.get(obj));
+                value = field.get(obj);
             } catch (IllegalAccessException e) {
                 field.setAccessible(true);
                 try {
-                    writer.print(field.get(obj));
+                    value = field.get(obj);
                 } catch (IllegalAccessException ex) {
                     throw new AssertionError("Inaccessible field was accessed.");
                 }
-                field.setAccessible(false);
             }
+
+            // Write field's info to save file.
+            writer.println();
+            writer.print(value.getClass().getTypeName() + ",");
+            writer.print(field.getName() + ",");
+            writer.print(value);
         }
         writer.close();
     }

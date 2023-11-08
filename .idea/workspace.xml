@@ -4,20 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="827e6fae-04d8-47e1-a74d-b097fa07ecd3" name="Changes" comment="Implemented load function for data type &quot;int&quot;.&#10;&#10;This version of implementation will assume that all fields of an object are &quot;int&quot;, and use the &quot;Integer.parseInt(String s)&quot; function.&#10;&#10;Next implementation should focus on making the load function use different parse function for different primitive types.">
-      <change afterPath="$PROJECT_DIR$/src/test/java/model/generic/TestObject.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/model/primitives/BoolObject.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/model/primitives/ByteObject.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/model/primitives/CharObject.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/model/primitives/DoubleObject.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/model/primitives/FloatObject.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/model/primitives/LongObject.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/model/primitives/ShortObject.java" afterDir="false" />
+    <list default="true" id="827e6fae-04d8-47e1-a74d-b097fa07ecd3" name="Changes" comment="Implemented tests and test object with generic type fields.&#10;&#10;Initially, this test was meant for wrapper classes and String fields, but it turns out to be that generic type fields itself has a unique property (type erasure) that has to be tested.">
+      <change afterPath="$PROJECT_DIR$/src/test/resources/generic/boolA.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/generic/byteA.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/generic/charA.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/generic/doubleA.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/generic/floatA.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/generic/intA.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/generic/longA.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/generic/shortA.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/generic/strA.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/han/util/ObjectSaver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/han/util/ObjectSaver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/han/util/ObjectSaverTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/han/util/ObjectSaverTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/model/IntObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/model/primitives/IntObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/intA.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/intA.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,12 +34,12 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RESET_MODE" value="HARD" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "Han-Kim-0811"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Han-Kim-0811&quot;
   }
-}]]></component>
+}</component>
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
@@ -82,6 +80,9 @@
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/test/resources/primitives" />
+    </key>
     <key name="CreateTestDialog.RecentsKey">
       <recent name="han.util" />
     </key>
@@ -90,8 +91,8 @@
       <recent name="model" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ObjectSaverTest.CharTest">
-    <configuration name="ObjectSaverTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.GenericTest">
+    <configuration name="GenericTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ObjectSaver" />
       <extension name="coverage">
         <pattern>
@@ -100,13 +101,13 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="han.util" />
-      <option name="MAIN_CLASS_NAME" value="han.util.ObjectSaverTest" />
+      <option name="MAIN_CLASS_NAME" value="han.util.GenericTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ObjectSaverTest.BoolTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GenericTest.StrTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ObjectSaver" />
       <extension name="coverage">
         <pattern>
@@ -115,14 +116,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="han.util" />
-      <option name="MAIN_CLASS_NAME" value="han.util.ObjectSaverTest" />
-      <option name="METHOD_NAME" value="BoolTest" />
+      <option name="MAIN_CLASS_NAME" value="han.util.GenericTest" />
+      <option name="METHOD_NAME" value="StrTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ObjectSaverTest.CharTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GenericTest.StringTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ObjectSaver" />
       <extension name="coverage">
         <pattern>
@@ -131,14 +132,30 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="han.util" />
-      <option name="MAIN_CLASS_NAME" value="han.util.ObjectSaverTest" />
+      <option name="MAIN_CLASS_NAME" value="han.util.GenericTest" />
+      <option name="METHOD_NAME" value="StringTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PrimitivesTest.CharTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ObjectSaver" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="han.util.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="han.util" />
+      <option name="MAIN_CLASS_NAME" value="han.util.PrimitivesTest" />
       <option name="METHOD_NAME" value="CharTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ObjectSaverTest.FloatTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="PrimitivesTest.StrTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ObjectSaver" />
       <extension name="coverage">
         <pattern>
@@ -147,24 +164,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="han.util" />
-      <option name="MAIN_CLASS_NAME" value="han.util.ObjectSaverTest" />
-      <option name="METHOD_NAME" value="FloatTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ObjectSaverTest.LongTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ObjectSaver" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="han.util.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="han.util" />
-      <option name="MAIN_CLASS_NAME" value="han.util.ObjectSaverTest" />
-      <option name="METHOD_NAME" value="LongTest" />
+      <option name="MAIN_CLASS_NAME" value="han.util.PrimitivesTest" />
+      <option name="METHOD_NAME" value="StrTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -172,11 +173,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ObjectSaverTest.CharTest" />
-        <item itemvalue="JUnit.ObjectSaverTest.BoolTest" />
-        <item itemvalue="JUnit.ObjectSaverTest.FloatTest" />
-        <item itemvalue="JUnit.ObjectSaverTest" />
-        <item itemvalue="JUnit.ObjectSaverTest.LongTest" />
+        <item itemvalue="JUnit.GenericTest" />
+        <item itemvalue="JUnit.GenericTest.StrTest" />
+        <item itemvalue="JUnit.PrimitivesTest.StrTest" />
+        <item itemvalue="JUnit.GenericTest.StringTest" />
+        <item itemvalue="JUnit.PrimitivesTest.CharTest" />
       </list>
     </recent_temporary>
   </component>
@@ -237,7 +238,79 @@
       <option name="project" value="LOCAL" />
       <updated>1699246525273</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Implemented primitive test objects, and wrote test cases according to them.&#10;&#10;The ObjectSaver class will be implemented through test-driven development according to the written test cases.&#10;&#10;Next implementation should focus on making the load function use different parse function for different primitive types.">
+      <option name="closed" value="true" />
+      <created>1699256319489</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1699256319489</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Implemented load function for primitive types&#10;&#10;The load function works for both public and private fields.&#10;&#10;Has been tested for all primitive types. Additionally, the save function was tested for all primitive types as well.">
+      <option name="closed" value="true" />
+      <created>1699301202746</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1699301202746</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Implemented save and load function for String types&#10;&#10;Since String is used as much as primitive types (and also has similar behavior), I decided to categorize it with other primitive types for testing.&#10;&#10;Additionally, refactored existing test and test objects according to the category.">
+      <option name="closed" value="true" />
+      <created>1699344079933</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1699344079933</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Implemented save and load function for String types&#10;&#10;Since String is used as much as primitive types (and also has similar behavior), I decided to categorize it with other primitive types for testing.&#10;&#10;Additionally, refactored existing test and test objects according to the category.">
+      <option name="closed" value="true" />
+      <created>1699344322706</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1699344322706</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Implemented save and load function for String types&#10;&#10;Since String is used as much as primitive types (and also has similar behavior), I decided to categorize it with other primitive types for testing.&#10;&#10;Additionally, refactored existing test and test objects according to the category.">
+      <option name="closed" value="true" />
+      <created>1699344527734</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1699344527734</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Renamed all save file extension (.yaml -&gt; .csv)&#10;&#10;This change should have been done with commit 306b1ce6d4744890b071c597989d622ae56c6aa2 (Change of save file format). However, it was forgotten.">
+      <option name="closed" value="true" />
+      <created>1699390085746</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1699390085746</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Renamed all save file extension (.yaml -&gt; .csv)&#10;&#10;This change should have been done with commit 306b1ce6d4744890b071c597989d622ae56c6aa2 (Change of save file format). However, it was forgotten.">
+      <option name="closed" value="true" />
+      <created>1699390634719</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1699390634719</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Renamed all save file extension (.yaml -&gt; .csv)&#10;&#10;This change should have been done with commit 306b1ce6d4744890b071c597989d622ae56c6aa2 (Change of save file format). However, it was forgotten.">
+      <option name="closed" value="true" />
+      <created>1699390970000</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1699390970000</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Implemented tests and test object with generic type fields.&#10;&#10;Initially, this test was meant for wrapper classes and String fields, but it turns out to be that generic type fields itself has a unique property (type erasure) that has to be tested.">
+      <option name="closed" value="true" />
+      <created>1699392992322</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1699392992322</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -256,6 +329,11 @@
     <MESSAGE value="Constructed a basic JUnit test for utility class ObjectSaver.&#10;&#10;Added the most basic test for save and load function.&#10;&#10;The ObjectSaver utility class will be implemented through test-driven development, and ObjectSaverTest will have multiple test cases later on." />
     <MESSAGE value="Changed the format of the save file. (YAML -&gt; CSV) &#10;&#10;The save function has also been changed accordingly.&#10;&#10;This change was made to focus of the save and load functionality, rather than the parsing functionality, which can be a whole new library by itself." />
     <MESSAGE value="Implemented load function for data type &quot;int&quot;.&#10;&#10;This version of implementation will assume that all fields of an object are &quot;int&quot;, and use the &quot;Integer.parseInt(String s)&quot; function.&#10;&#10;Next implementation should focus on making the load function use different parse function for different primitive types." />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented load function for data type &quot;int&quot;.&#10;&#10;This version of implementation will assume that all fields of an object are &quot;int&quot;, and use the &quot;Integer.parseInt(String s)&quot; function.&#10;&#10;Next implementation should focus on making the load function use different parse function for different primitive types." />
+    <MESSAGE value="Implemented primitive test objects, and wrote test cases according to them.&#10;&#10;The ObjectSaver class will be implemented through test-driven development according to the written test cases.&#10;&#10;Next implementation should focus on making the load function use different parse function for different primitive types." />
+    <MESSAGE value="Implemented load function for primitive types&#10;&#10;The load function works for both public and private fields.&#10;&#10;Has been tested for all primitive types. Additionally, the save function was tested for all primitive types as well." />
+    <MESSAGE value="Implemented save and load function for String types&#10;&#10;Since String is used as much as primitive types (and also has similar behavior), I decided to categorize it with other primitive types for testing.&#10;&#10;Additionally, refactored existing test and test objects according to the category." />
+    <MESSAGE value="Renamed all save file extension (.yaml -&gt; .csv)&#10;&#10;This change should have been done with commit 306b1ce6d4744890b071c597989d622ae56c6aa2 (Change of save file format). However, it was forgotten." />
+    <MESSAGE value="Implemented tests and test object with generic type fields.&#10;&#10;Initially, this test was meant for wrapper classes and String fields, but it turns out to be that generic type fields itself has a unique property (type erasure) that has to be tested." />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented tests and test object with generic type fields.&#10;&#10;Initially, this test was meant for wrapper classes and String fields, but it turns out to be that generic type fields itself has a unique property (type erasure) that has to be tested." />
   </component>
 </project>
