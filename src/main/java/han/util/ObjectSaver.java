@@ -2,6 +2,7 @@ package han.util;
 
 // Reflection used to access object's field name and field value.
 import java.lang.reflect.Field;
+import java.lang.reflect.Array;
 
 // Used for file handling.
 import java.io.PrintWriter;
@@ -58,10 +59,29 @@ public final class ObjectSaver {
             }
 
             // Write field's info to save file.
+            String typeName = value.getClass().getTypeName();
+
             writer.println();
-            writer.print(value.getClass().getTypeName() + ",");
+            writer.print(typeName + ",");
             writer.print(field.getName() + ",");
-            writer.print(value);
+
+            // Write field's value to save file.
+            StringBuilder sb = new StringBuilder();
+
+            if (typeName.endsWith("[]")) {
+                int length = Array.getLength(value);
+
+                sb.append("{");
+                for (int i = 0; i < length; i++) {
+                    sb.append(Array.get(value, i));
+                    sb.append(",");
+                }
+                sb.deleteCharAt(sb.length() - 1);
+                sb.append("}");
+            } else {
+                sb.append(value);
+            }
+            writer.print(sb);
         }
         writer.close();
     }
@@ -84,8 +104,8 @@ public final class ObjectSaver {
         for (Field field : fields) {
             // values[0] = field's name (e.g. pubInt, priInt etc...).
             // values[1] = field's type (e.g. int, double etc...).
-            // values[2] = field's value (e.g. 1, 4.5, "String" etc...).
-            String[] values = scan.nextLine().split(",");
+            // values[2] = field's value (e.g. 1, 4.5, "String", {1, 2, 3} etc...).
+            String[] values = scan.nextLine().split(",", 3);
 
             try {
                 field.set(obj, parseType(values[0]).apply(values[2]));
@@ -108,8 +128,8 @@ public final class ObjectSaver {
      * @return the proper parse function for the given data type's name.
      */
     private static Function<String, ?> parseType(String type) {
-        //TODO: Implement other situations (e.g. Arrays, Objects etc...).
         return switch (type) {
+            // Type is primitives, wrapper classes, or String.
             case "byte", "java.lang.Byte" -> Byte::parseByte;
             case "short", "java.lang.Short" -> Short::parseShort;
             case "int", "java.lang.Integer" -> Integer::parseInt;
@@ -119,6 +139,8 @@ public final class ObjectSaver {
             case "boolean", "java.lang.Boolean" -> Boolean::parseBoolean;
             case "char", "java.lang.Character" -> (String ch) -> ch.charAt(0);
             case "java.lang.String" -> (String str) -> str;
+
+            // TODO: Implement other situations (e.g. Arrays, Objects etc...).
             default -> throw new AssertionError("Not supported yet.");
         };
     }

@@ -1,0 +1,3 @@
+TestObject
+byte[],pubField,{1,2,3}
+byte[],priField,{127,126,125}

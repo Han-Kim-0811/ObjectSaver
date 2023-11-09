@@ -1,0 +1,3 @@
+TestObject
+boolean[],pubField,{true,false,true}
+boolean[],priField,{false,true,false}

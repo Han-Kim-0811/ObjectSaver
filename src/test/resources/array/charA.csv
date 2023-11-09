@@ -1,0 +1,3 @@
+TestObject
+char[],pubField,{a,b,c}
+char[],priField,{x,y,z}

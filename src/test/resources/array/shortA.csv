@@ -1,0 +1,3 @@
+TestObject
+short[],pubField,{1,2,3}
+short[],priField,{32767,32766,32765}
