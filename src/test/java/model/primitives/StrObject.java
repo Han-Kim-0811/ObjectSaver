@@ -30,10 +30,9 @@ public class StrObject {
     public boolean equals(Object other) {
         if (this == other) {
             return true;
-        } else if(!(other instanceof StrObject)) {
+        } else if(!(other instanceof StrObject strObj)) {
             return false;
         } else {
-            StrObject strObj = (StrObject) other;
             return this.pubStr.equals(strObj.pubStr) && this.priStr.equals(strObj.priStr);
         }
     }

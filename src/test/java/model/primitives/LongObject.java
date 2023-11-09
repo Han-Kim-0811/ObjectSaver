@@ -29,10 +29,9 @@ public class LongObject {
     public boolean equals(Object other) {
         if (this == other) {
             return true;
-        } else if(!(other instanceof LongObject)) {
+        } else if(!(other instanceof LongObject longObj)) {
             return false;
         } else {
-            LongObject longObj = (LongObject) other;
             return this.pubLong == longObj.pubLong && priLong == longObj.priLong;
         }
     }

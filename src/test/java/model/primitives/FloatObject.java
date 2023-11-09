@@ -29,10 +29,9 @@ public class FloatObject {
     public boolean equals(Object other) {
         if (this == other) {
             return true;
-        } else if(!(other instanceof FloatObject)) {
+        } else if(!(other instanceof FloatObject floatObj)) {
             return false;
         } else {
-            FloatObject floatObj = (FloatObject) other;
             return this.pubFloat == floatObj.pubFloat && priFloat == floatObj.priFloat;
         }
     }

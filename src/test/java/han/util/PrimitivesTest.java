@@ -28,7 +28,8 @@ class PrimitivesTest {
         ObjectSaver.save(objA, PATH + "/byteA.csv");
         ObjectSaver.load(objB, PATH + "/byteA.csv");
 
-        assertEquals(objA, objB);
+        assertEquals(objA.pubByte, objB.pubByte);
+        assertEquals(objA.getPriByte(), objB.getPriByte());
     }
 
     @Test
@@ -40,7 +41,8 @@ class PrimitivesTest {
         ObjectSaver.save(objA, PATH + "/shortA.csv");
         ObjectSaver.load(objB, PATH + "/shortA.csv");
 
-        assertEquals(objA, objB);
+        assertEquals(objA.pubShort, objB.pubShort);
+        assertEquals(objA.getPriShort(), objB.getPriShort());
     }
 
     @Test
@@ -52,7 +54,8 @@ class PrimitivesTest {
         ObjectSaver.save(objA, PATH + "/intA.csv");
         ObjectSaver.load(objB, PATH + "/intA.csv");
 
-        assertEquals(objA, objB);
+        assertEquals(objA.pubInt, objB.pubInt);
+        assertEquals(objA.getPriInt(), objB.getPriInt());
     }
 
     @Test
@@ -64,7 +67,8 @@ class PrimitivesTest {
         ObjectSaver.save(objA, PATH + "/longA.csv");
         ObjectSaver.load(objB, PATH + "/longA.csv");
 
-        assertEquals(objA, objB);
+        assertEquals(objA.pubLong, objB.pubLong);
+        assertEquals(objA.getPriLong(), objB.getPriLong());
     }
 
     @Test
@@ -76,7 +80,8 @@ class PrimitivesTest {
         ObjectSaver.save(objA, PATH + "/floatA.csv");
         ObjectSaver.load(objB, PATH + "/floatA.csv");
 
-        assertEquals(objA, objB);
+        assertEquals(objA.pubFloat, objB.pubFloat);
+        assertEquals(objA.getPriFloat(), objB.getPriFloat());
     }
 
     @Test
@@ -88,7 +93,8 @@ class PrimitivesTest {
         ObjectSaver.save(objA, PATH + "/doubleA.csv");
         ObjectSaver.load(objB, PATH + "/doubleA.csv");
 
-        assertEquals(objA, objB);
+        assertEquals(objA.pubDouble, objB.pubDouble);
+        assertEquals(objA.getPriDouble(), objB.getPriDouble());
     }
 
     @Test
@@ -100,7 +106,8 @@ class PrimitivesTest {
         ObjectSaver.save(objA, PATH + "/boolA.csv");
         ObjectSaver.load(objB, PATH + "/boolA.csv");
 
-        assertEquals(objA, objB);
+        assertEquals(objA.pubBool, objB.pubBool);
+        assertEquals(objA.getPriBool(), objB.getPriBool());
     }
 
     @Test
@@ -112,7 +119,8 @@ class PrimitivesTest {
         ObjectSaver.save(objA, PATH + "/charA.csv");
         ObjectSaver.load(objB, PATH + "/charA.csv");
 
-        assertEquals(objA, objB);
+        assertEquals(objA.pubChar, objB.pubChar);
+        assertEquals(objA.getPriChar(), objB.getPriChar());
     }
 
     @Test
@@ -124,6 +132,7 @@ class PrimitivesTest {
         ObjectSaver.save(objA, PATH + "/strA.csv");
         ObjectSaver.load(objB, PATH + "/strA.csv");
 
-        assertEquals(objA, objB);
+        assertEquals(objA.pubStr, objB.pubStr);
+        assertEquals(objA.getPriStr(), objB.getPriStr());
     }
 }

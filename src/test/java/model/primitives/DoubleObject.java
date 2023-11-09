@@ -5,23 +5,23 @@ package model.primitives;
  * This class has two types of double fields: public, private.
  */
 public class DoubleObject {
-    public double pubByte;
-    private double priByte;
+    public double pubDouble;
+    private double priDouble;
 
     /**
      * Constructor of this class.
      *
-     * @param pubByte is the value for the public double field.
-     * @param priByte is the value for the private double field.
+     * @param pubDouble is the value for the public double field.
+     * @param priDouble is the value for the private double field.
      */
-    public DoubleObject(double pubByte, double priByte) {
-        this.pubByte = pubByte;
-        this.priByte = priByte;
+    public DoubleObject(double pubDouble, double priDouble) {
+        this.pubDouble = pubDouble;
+        this.priDouble = priDouble;
     }
 
     // ---- Getters and Setters ---- //
-    public double getPriByte() {
-        return this.priByte;
+    public double getPriDouble() {
+        return this.priDouble;
     }
 
     // ---- Overrides ---- //
@@ -29,11 +29,10 @@ public class DoubleObject {
     public boolean equals(Object other) {
         if (this == other) {
             return true;
-        } else if(!(other instanceof DoubleObject)) {
+        } else if(!(other instanceof DoubleObject doubleObj)) {
             return false;
         } else {
-            DoubleObject doubleObj = (DoubleObject) other;
-            return this.pubByte == doubleObj.pubByte && priByte == doubleObj.priByte;
+            return this.pubDouble == doubleObj.pubDouble && priDouble == doubleObj.priDouble;
         }
     }
 }

@@ -29,10 +29,9 @@ public class CharObject {
     public boolean equals(Object other) {
         if (this == other) {
             return true;
-        } else if(!(other instanceof CharObject)) {
+        } else if(!(other instanceof CharObject charObj)) {
             return false;
         } else {
-            CharObject charObj = (CharObject) other;
             return this.pubChar == charObj.pubChar && priChar == charObj.priChar;
         }
     }

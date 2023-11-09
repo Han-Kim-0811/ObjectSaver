@@ -1,3 +1,3 @@
 ByteObject
-byte,pubByte,1
-byte,priByte,127
+java.lang.Byte,pubByte,1
+java.lang.Byte,priByte,127

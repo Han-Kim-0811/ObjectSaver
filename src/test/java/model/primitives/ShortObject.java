@@ -29,10 +29,9 @@ public class ShortObject {
     public boolean equals(Object other) {
         if (this == other) {
             return true;
-        } else if(!(other instanceof ShortObject)) {
+        } else if(!(other instanceof ShortObject shortObj)) {
             return false;
         } else {
-            ShortObject shortObj = (ShortObject) other;
             return this.pubShort == shortObj.pubShort && priShort == shortObj.priShort;
         }
     }

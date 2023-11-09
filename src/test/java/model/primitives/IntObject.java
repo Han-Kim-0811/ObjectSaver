@@ -29,10 +29,9 @@ public class IntObject {
     public boolean equals(Object other) {
         if (this == other) {
             return true;
-        } else if(!(other instanceof IntObject)) {
+        } else if(!(other instanceof IntObject intObj)) {
             return false;
         } else {
-            IntObject intObj = (IntObject) other;
             return this.pubInt == intObj.pubInt && priInt == intObj.priInt;
         }
     }

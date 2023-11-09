@@ -1,3 +1,3 @@
 IntObject
-int,pubInt,1
-int,priInt,2147483647
+java.lang.Integer,pubInt,1
+java.lang.Integer,priInt,2147483647

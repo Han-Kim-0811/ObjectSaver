@@ -1,3 +1,3 @@
 BoolObject
-boolean,pubBool,true
-boolean,priBool,false
+java.lang.Boolean,pubBool,true
+java.lang.Boolean,priBool,false

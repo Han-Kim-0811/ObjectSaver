@@ -6,6 +6,7 @@ package model.primitives;
  */
 public class ByteObject {
     public byte pubByte;
+
     private byte priByte;
 
     /**
@@ -29,10 +30,9 @@ public class ByteObject {
     public boolean equals(Object other) {
         if (this == other) {
             return true;
-        } else if(!(other instanceof ByteObject)) {
+        } else if(!(other instanceof ByteObject byteObj)) {
             return false;
         } else {
-            ByteObject byteObj = (ByteObject) other;
             return this.pubByte == byteObj.pubByte && priByte == byteObj.priByte;
         }
     }
