@@ -1,12 +1,13 @@
 package model.generic;
 
 /**
- * Object with generic type TTT fields for testing.
- * This class has two types of TTT fields: public, private.
+ * Object with generic type T fields for testing.
+ * This class has two types of T fields: public, private.
  */
-public class TestObject<TTT> {
-    public TTT pubField;
-    private TTT priField;
+@SuppressWarnings("FieldMayBeFinal")
+public class TestObject<T> {
+    public T pubField;
+    private T priField;
 
     /**
      * Constructor of this class.
@@ -14,13 +15,13 @@ public class TestObject<TTT> {
      * @param pubField is the value for the public field.
      * @param priField is the value for the private field.
      */
-    public TestObject(TTT pubField, TTT priField) {
+    public TestObject(T pubField, T priField) {
         this.pubField = pubField;
         this.priField = priField;
     }
 
     // ---- Getters and Setters ---- //
-    public TTT getPriField() {
+    public T getPriField() {
         return this.priField;
     }
 
@@ -29,10 +30,9 @@ public class TestObject<TTT> {
     public boolean equals(Object other) {
         if (this == other) {
             return true;
-        } else if(!(other instanceof TestObject)) {
+        } else if(!(other instanceof TestObject<?> testObj)) {
             return false;
         } else {
-            TestObject testObj = (TestObject) other;
             return this.pubField.equals(testObj.pubField) && this.priField.equals(testObj.priField);
         }
     }

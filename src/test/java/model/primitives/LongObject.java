@@ -4,6 +4,7 @@ package model.primitives;
  * Object with primitive type long fields for testing.
  * This class has two types of long fields: public, private.
  */
+@SuppressWarnings("FieldMayBeFinal")
 public class LongObject {
     public long pubLong;
     private long priLong;

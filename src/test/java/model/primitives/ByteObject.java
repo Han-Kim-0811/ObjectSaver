@@ -4,6 +4,7 @@ package model.primitives;
  * Object with primitive type byte fields for testing.
  * This class has two types of byte fields: public, private.
  */
+@SuppressWarnings("FieldMayBeFinal")
 public class ByteObject {
     public byte pubByte;
 

@@ -4,6 +4,7 @@ package model.primitives;
  * Object with primitive type char fields for testing.
  * This class has two types of char fields: public, private.
  */
+@SuppressWarnings("FieldMayBeFinal")
 public class CharObject {
     public char pubChar;
     private char priChar;

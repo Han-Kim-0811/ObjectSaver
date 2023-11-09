@@ -4,6 +4,7 @@ package model.primitives;
  * Object with primitive type short fields for testing.
  * This class has two types of short fields: public, private.
  */
+@SuppressWarnings("FieldMayBeFinal")
 public class ShortObject {
     public short pubShort;
     private short priShort;

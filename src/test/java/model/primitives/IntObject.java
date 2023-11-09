@@ -4,6 +4,7 @@ package model.primitives;
  * Object with primitive type int fields for testing.
  * This class has two types of int fields: public, private.
  */
+@SuppressWarnings("FieldMayBeFinal")
 public class IntObject {
     public int pubInt;
     private int priInt;

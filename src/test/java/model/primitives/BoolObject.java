@@ -4,6 +4,7 @@ package model.primitives;
  * Object with primitive type boolean fields for testing.
  * This class has two types of boolean fields: public, private.
  */
+@SuppressWarnings("FieldMayBeFinal")
 public class BoolObject {
     public boolean pubBool;
     private boolean priBool;

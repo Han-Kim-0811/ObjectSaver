@@ -4,6 +4,7 @@ package model.primitives;
  * Object with primitive type float fields for testing.
  * This class has two types of float fields: public, private.
  */
+@SuppressWarnings("FieldMayBeFinal")
 public class FloatObject {
     public float pubFloat;
     private float priFloat;

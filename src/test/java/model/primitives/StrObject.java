@@ -5,6 +5,7 @@ package model.primitives;
  * Added to be primitives package, because String is used as much as primitive types.
  * This class has two types of String fields: public, private.
  */
+@SuppressWarnings("FieldMayBeFinal")
 public class StrObject {
     public String pubStr;
     private String priStr;

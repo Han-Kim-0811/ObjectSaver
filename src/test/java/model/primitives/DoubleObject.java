@@ -4,6 +4,7 @@ package model.primitives;
  * Object with primitive type double fields for testing.
  * This class has two types of double fields: public, private.
  */
+@SuppressWarnings("FieldMayBeFinal")
 public class DoubleObject {
     public double pubDouble;
     private double priDouble;
