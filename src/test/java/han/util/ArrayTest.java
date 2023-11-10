@@ -21,7 +21,7 @@ class ArrayTest {
 
     @Test
     @DisplayName("Test byte array fields")
-    void ByteTest() throws IOException {
+    void ByteTest() throws IOException, ClassNotFoundException {
         byte[] arrA = {1, 2, 3};
         byte[] arrB = {Byte.MAX_VALUE, Byte.MAX_VALUE - 1, Byte.MAX_VALUE - 2};
 
@@ -40,7 +40,7 @@ class ArrayTest {
 
     @Test
     @DisplayName("Test short array fields")
-    void ShortTest() throws IOException {
+    void ShortTest() throws IOException, ClassNotFoundException {
         short[] arrA = {1, 2, 3};
         short[] arrB = {Short.MAX_VALUE, Short.MAX_VALUE - 1, Short.MAX_VALUE - 2};
 
@@ -59,7 +59,7 @@ class ArrayTest {
 
     @Test
     @DisplayName("Test int array fields")
-    void IntTest() throws IOException {
+    void IntTest() throws IOException, ClassNotFoundException {
         int[] arrA = {1, 2, 3};
         int[] arrB = {Integer.MAX_VALUE, Integer.MAX_VALUE - 1, Integer.MAX_VALUE - 2};
 
@@ -78,7 +78,7 @@ class ArrayTest {
 
     @Test
     @DisplayName("Test long array fields")
-    void LongTest() throws IOException {
+    void LongTest() throws IOException, ClassNotFoundException {
         long[] arrA = {1, 2, 3};
         long[] arrB = {Long.MAX_VALUE, Long.MAX_VALUE - 1, Long.MAX_VALUE - 2};
 
@@ -97,7 +97,7 @@ class ArrayTest {
 
     @Test
     @DisplayName("Test float array fields")
-    void FloatTest() throws IOException {
+    void FloatTest() throws IOException, ClassNotFoundException {
         float[] arrA = {0.1f, 0.2f, 0.3f};
         float[] arrB = {Float.MAX_VALUE, Float.MAX_VALUE - 0.1f, Float.MAX_VALUE - 0.2f};
 
@@ -116,7 +116,7 @@ class ArrayTest {
 
     @Test
     @DisplayName("Test double array fields")
-    void DoubleTest() throws IOException {
+    void DoubleTest() throws IOException, ClassNotFoundException {
         double[] arrA = {0.1, 0.2, 0.3};
         double[] arrB = {Double.MAX_VALUE, Double.MAX_VALUE - 0.1, Double.MAX_VALUE - 0.2};
 
@@ -135,7 +135,7 @@ class ArrayTest {
 
     @Test
     @DisplayName("Test boolean array fields")
-    void BoolTest() throws IOException {
+    void BoolTest() throws IOException, ClassNotFoundException {
         boolean[] arrA = {true, false, true};
         boolean[] arrB = {false, true, false};
 
@@ -154,7 +154,7 @@ class ArrayTest {
 
     @Test
     @DisplayName("Test char array fields")
-    void CharTest() throws IOException {
+    void CharTest() throws IOException, ClassNotFoundException {
         char[] arrA = {'a', 'b', 'c'};
         char[] arrB = {'x', 'y', 'z'};
 
@@ -173,7 +173,7 @@ class ArrayTest {
 
     @Test
     @DisplayName("Test String array fields")
-    void StrTest() throws IOException {
+    void StrTest() throws IOException, ClassNotFoundException {
         String[] arrA = {"Hello", "Beautiful", "World!"};
         String[] arrB = {"Super", "Mario", "Wonders!"};
 

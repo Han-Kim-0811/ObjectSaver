@@ -19,7 +19,7 @@ import java.util.function.Function;
  * Load the field's state of a Java object from a CSV save file.
  *
  * @author Han Kim
- * @version 2023-11-07
+ * @version 2023-11-09
  */
 public final class ObjectSaver {
     /**
@@ -92,7 +92,7 @@ public final class ObjectSaver {
      * @param obj is the Object to save.
      * @param path is the path of the CSV save file.
      */
-    public static void load(Object obj, String path) throws IOException{
+    public static void load(Object obj, String path) throws IOException, ClassNotFoundException {
         File file = new File(path);
         Scanner scan = new Scanner(file);
         Field[] fields = obj.getClass().getDeclaredFields();
@@ -102,17 +102,32 @@ public final class ObjectSaver {
         }
 
         for (Field field : fields) {
-            // values[0] = field's name (e.g. pubInt, priInt etc...).
-            // values[1] = field's type (e.g. int, double etc...).
-            // values[2] = field's value (e.g. 1, 4.5, "String", {1, 2, 3} etc...).
-            String[] values = scan.nextLine().split(",", 3);
+            String[] fieldInfo = scan.nextLine().split(",", 3);
+            String fieldType = fieldInfo[0];
+            // String fieldName = fieldInfo[1];
+            String fieldValue = fieldInfo[2];
+
+            Object toSet;
+
+            if(fieldType.endsWith("[]")) {
+                String arrayType = fieldType.substring(0, fieldType.length() - 2);
+                String[] toParse = fieldValue.substring(1, fieldValue.length() - 1).split(",");
+                toSet = makeNewArray(arrayType, toParse.length);
+
+                Function<String, ?> parser = getParser(arrayType);
+                for(int i = 0; i < toParse.length; i++) {
+                    Array.set(toSet, i, parser.apply(toParse[i]));
+                }
+            } else {
+                toSet = getParser(fieldType).apply(fieldValue);
+            }
 
             try {
-                field.set(obj, parseType(values[0]).apply(values[2]));
+                field.set(obj, toSet);
             } catch (IllegalAccessException e) {
                 field.setAccessible(true);
                 try {
-                    field.set(obj, parseType(values[0]).apply(values[2]));
+                    field.set(obj, toSet);
                 } catch (IllegalAccessException ex) {
                     throw new AssertionError("Inaccessible field was accessed.");
                 }
@@ -121,13 +136,28 @@ public final class ObjectSaver {
         }
     }
 
+    private static Object makeNewArray(String arrayType, int length) throws ClassNotFoundException {
+        return switch (arrayType) {
+            // Type is primitives, wrapper classes, or String.
+            case "byte" -> new byte[length];
+            case "short" -> new short[length];
+            case "int" -> new int[length];
+            case "long" -> new long[length];
+            case "float" -> new float[length];
+            case "double" -> new double[length];
+            case "boolean" -> new boolean[length];
+            case "char" -> new char[length];
+            default -> Array.newInstance(Class.forName(arrayType), length);
+        };
+    }
+
     /**
      * Returns the proper function for parsing the given type.
      *
      * @param type is the name of the data type to parse from String.
      * @return the proper parse function for the given data type's name.
      */
-    private static Function<String, ?> parseType(String type) {
+    private static Function<String, ?> getParser(String type) {
         return switch (type) {
             // Type is primitives, wrapper classes, or String.
             case "byte", "java.lang.Byte" -> Byte::parseByte;
@@ -140,7 +170,7 @@ public final class ObjectSaver {
             case "char", "java.lang.Character" -> (String ch) -> ch.charAt(0);
             case "java.lang.String" -> (String str) -> str;
 
-            // TODO: Implement other situations (e.g. Arrays, Objects etc...).
+            // TODO: Implement other situations (e.g. Objects, Inheritance etc...).
             default -> throw new AssertionError("Not supported yet.");
         };
     }

@@ -21,7 +21,7 @@ class GenericTest {
 
     @Test
     @DisplayName("Test wrapper Byte fields")
-    void ByteTest() throws IOException {
+    void ByteTest() throws IOException, ClassNotFoundException {
         TestObject<Byte> objA = new TestObject<>((byte) 1, Byte.MAX_VALUE);
         TestObject<Byte> objB = new TestObject<>((byte) -1, Byte.MIN_VALUE);
 
@@ -33,7 +33,7 @@ class GenericTest {
 
     @Test
     @DisplayName("Test wrapper Short fields")
-    void ShortTest() throws IOException {
+    void ShortTest() throws IOException, ClassNotFoundException {
         TestObject<Short> objA = new TestObject<>((short) 1, Short.MAX_VALUE);
         TestObject<Short> objB = new TestObject<>((short) -1, Short.MIN_VALUE);
 
@@ -45,7 +45,7 @@ class GenericTest {
 
     @Test
     @DisplayName("Test wrapper Integer fields")
-    void IntTest() throws IOException {
+    void IntTest() throws IOException, ClassNotFoundException {
         TestObject<Integer> objA = new TestObject<>(1, Integer.MAX_VALUE);
         TestObject<Integer> objB = new TestObject<>(-1, Integer.MIN_VALUE);
 
@@ -57,7 +57,7 @@ class GenericTest {
 
     @Test
     @DisplayName("Test wrapper Long fields")
-    void LongTest() throws IOException {
+    void LongTest() throws IOException, ClassNotFoundException {
         TestObject<Long> objA = new TestObject<>(1L, Long.MAX_VALUE);
         TestObject<Long> objB = new TestObject<>(-1L, Long.MAX_VALUE);
 
@@ -69,7 +69,7 @@ class GenericTest {
 
     @Test
     @DisplayName("Test wrapper Float fields")
-    void FloatTest() throws IOException {
+    void FloatTest() throws IOException, ClassNotFoundException {
         TestObject<Float> objA = new TestObject<>(0.1f, Float.MAX_VALUE);
         TestObject<Float> objB = new TestObject<>(-0.1f, Float.MIN_VALUE);
 
@@ -81,7 +81,7 @@ class GenericTest {
 
     @Test
     @DisplayName("Test wrapper Double fields")
-    void DoubleTest() throws IOException {
+    void DoubleTest() throws IOException, ClassNotFoundException {
         TestObject<Double> objA = new TestObject<>(0.1, Double.MAX_VALUE);
         TestObject<Double> objB = new TestObject<>(-0.1, Double.MIN_VALUE);
 
@@ -93,7 +93,7 @@ class GenericTest {
 
     @Test
     @DisplayName("Test wrapper Boolean fields")
-    void BoolTest() throws IOException {
+    void BoolTest() throws IOException, ClassNotFoundException {
         TestObject<Boolean> objA = new TestObject<>(true, false);
         TestObject<Boolean> objB = new TestObject<>(false, true);
 
@@ -105,7 +105,7 @@ class GenericTest {
 
     @Test
     @DisplayName("Test wrapper Character fields")
-    void CharTest() throws IOException {
+    void CharTest() throws IOException, ClassNotFoundException {
         TestObject<Character> objA = new TestObject<>('A', 'Z');
         TestObject<Character> objB = new TestObject<>('a', 'b');
 
@@ -117,7 +117,7 @@ class GenericTest {
 
     @Test
     @DisplayName("Test String fields")
-    void StrTest() throws IOException {
+    void StrTest() throws IOException, ClassNotFoundException {
         TestObject<String> objA = new TestObject<>("Hello", "World!");
         TestObject<String> objB = new TestObject<>("Hallo", "Welt!");
 
